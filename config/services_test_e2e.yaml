@@ -1,0 +1,6 @@
+services:
+    Cjm\Delivery\Application\:
+        resource: '../src/Application'
+        public: true
+        bind:
+            Cjm\Delivery\Domain\OrderRepositoryInterface: '@Cjm\Delivery\Infrastructure\Doctrine\OrderRepository'

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<p>Select your food!</p>
+
+    <form method="post" action="/add-item">
+        <button type="submit" name="item" value="CHEESEBURGER">CHEESEBURGER</button>
+        <button type="submit" name="item" value="BEANBURGER">BEANBURGER</button>
+        <button type="submit" name="item" value="FRIES">FRIES</button>
+    </form>
+
+    {% for line in order %}
+        {% if loop.first %}
+            <div class="order" style="border: solid 1px grey">
+                <h1>Your order:</h1>
+        {%  endif %}
+
+        <p>{{ line.item }} X {{ line.quantity }}</p>
+
+        {% if loop.last %}
+            </div>
+        {%  endif %}
+    {% endfor %}
+
+{% endblock %}
